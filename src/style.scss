@@ -9,26 +9,27 @@ header .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 160px;
+  padding: 50px 170px;
+  font-size: 15px;
   font-weight: 700;
 
   .nav {
     flex: 1;
     margin-left: 20px;
-    color: hsl(0, 0%, 75%);
+    color: hsl(0, 0%, 60%);
     cursor: pointer;
 
     span {
       margin-left: 30px;
 
       &:hover {
-        color: #000;
+        color: #262626;
       }
     }
   }
 
   #login {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     border: 0;
     background: transparent;
@@ -37,7 +38,39 @@ header .content {
     cursor: pointer;
 
     &:hover {
-      color: #000;
+      color: #262626;
     }
   }
+}
+
+main {
+  .banner {
+    display: flex;
+    align-items: center;
+    margin: 40px -130px 0 170px;
+
+    h1 {
+      font-size: 80px;
+      line-height: 1.1em;
+      color:#262626;
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 1.5em;
+      padding-right: 80px;
+      color:hsl(0, 0%, 60%);
+      margin-bottom: 40px;
+    }
+
+    button {
+      height: 54px;
+      font-size: 20px;
+      padding: 0 32px;
+      border-radius: 30px;
+    }
+
+  }
+
+  
 }

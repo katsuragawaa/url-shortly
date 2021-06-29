@@ -1,5 +1,8 @@
 import { Button } from "./components/Button";
+
 import logoImg from "./assets/images/logo.svg";
+import illustrationImg from "./assets/images/illustration-working.svg";
+
 import "./style.scss";
 
 function App() {
@@ -19,6 +22,19 @@ function App() {
           </div>
         </div>
       </header>
+      <main>
+        <div className="banner">
+          <div>
+            <h1>More than just shorter links</h1>
+            <p>
+              Build your brand's recognition and get detailed insights on how
+              yours links are performing.
+            </p>
+            <Button>Get Started</Button>
+          </div>
+          <img src={illustrationImg} alt="Person working on a computer" />
+        </div>
+      </main>
     </div>
   );
 }
