@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+header .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 160px;
+  font-weight: 700;
+
+  .nav {
+    flex: 1;
+		margin-left: 20px;
+    color: hsl(0, 0%, 75%);
+    cursor: pointer;
+
+		span {
+			margin-left: 30px;
+		}
+
+    span:hover {
+      color: #000;
+    }
+  }
+
+  #login {
+    font-size: 16px;
+    font-weight: 700;
+    border: 0;
+    background: transparent;
+    color: hsl(0, 0%, 75%);
+    margin-right: 40px;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
