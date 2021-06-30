@@ -13,14 +13,34 @@ header .content {
   font-size: 15px;
   font-weight: 700;
 
-  .nav {
+  .inner-content {
     flex: 1;
-    margin-left: 20px;
-    color: hsl(0, 0%, 60%);
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    span {
-      margin-left: 30px;
+    .nav {
+      margin-left: 20px;
+      color: hsl(0, 0%, 60%);
+
+      span {
+        cursor: pointer;
+        margin-left: 30px;
+
+        &:hover {
+          color: #262626;
+        }
+      }
+    }
+
+    #login {
+      font-size: 15px;
+      font-weight: 700;
+      border: 0;
+      background: transparent;
+      color: hsl(0, 0%, 75%);
+      margin-right: 40px;
+      cursor: pointer;
 
       &:hover {
         color: #262626;
@@ -28,17 +48,61 @@ header .content {
     }
   }
 
-  #login {
-    font-size: 15px;
-    font-weight: 700;
-    border: 0;
-    background: transparent;
-    color: hsl(0, 0%, 75%);
-    margin-right: 40px;
-    cursor: pointer;
+  i {
+    display: none;
+  }
 
-    &:hover {
-      color: #262626;
+  @media (max-width: 1440px) {
+    flex-wrap: wrap;
+
+    .inner-content {
+      display: none;
+      background: hsl(257, 27%, 26%);
+    }
+
+    i {
+      display: inline-block;
+      color: hsl(0, 0%, 60%);
+      cursor: pointer;
+      font-size: 30px;
+      position: absolute;
+      right: 170px;
+      top: 50px;
+    }
+
+    &.responsive div {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      color: #f3f3f3 !important;
+      border-radius: 12px;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 24px;
+
+      .nav {
+        margin: 0 auto;
+
+        span {
+          margin: 0 auto;
+          padding-top: 30px;
+
+          &:hover {
+            color: #fff;
+            filter: brightness(0.7);
+          }
+        }
+      }
+
+      #login {
+        border-top: 2px solid hsl(257, 7%, 63%);
+        margin: 0 20px;
+        padding-top: 30px;
+      }
+
+      .btn {
+        margin: 30px 20px 46px 20px;
+      }
     }
   }
 }
@@ -46,31 +110,99 @@ header .content {
 main {
   .banner {
     display: flex;
+    margin: 40px 0 0 170px;
     align-items: center;
-    margin: 40px -130px 0 170px;
+    justify-content: space-between;
 
-    h1 {
-      font-size: 80px;
-      line-height: 1.1em;
-      color:#262626;
+    div {
+      width: 660px;
+
+      h1 {
+        font-size: 80px;
+        line-height: 1.1em;
+        color: #262626;
+      }
+
+      p {
+        font-size: 22px;
+        line-height: 1.5em;
+        padding-right: 100px;
+        color: hsl(0, 0%, 60%);
+        margin-bottom: 40px;
+      }
+
+      button {
+        height: 54px;
+        font-size: 20px;
+        padding: 0 32px;
+        border-radius: 30px;
+      }
     }
 
-    p {
-      font-size: 22px;
-      line-height: 1.5em;
-      padding-right: 80px;
-      color:hsl(0, 0%, 60%);
-      margin-bottom: 40px;
-    }
+    @media (max-width: 1440px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      mix-width: 400px;
+      margin-right: 170px;
 
-    button {
-      height: 54px;
-      font-size: 20px;
-      padding: 0 32px;
-      border-radius: 30px;
-    }
+      div {
+        order: 1;
 
+        button {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
   }
 
-  
+  .url-container {
+    display: flex;
+    justify-content: center;
+    background: hsl(257, 27%, 26%);
+    background-image: url("./assets/images/bg-shorten-desktop.svg");
+    background-size: cover;
+    margin: 50px 170px;
+    border-radius: 10px;
+
+    form {
+      display: flex;
+      padding: 56px;
+      min-width: 100%;
+
+      input {
+        height: 70px;
+        padding-left: 20px;
+        min-width: calc(100% - (107.2px + 130px));
+        border-radius: 10px;
+        font-size: 20px;
+        border: 0;
+      }
+
+      button {
+        height: 100%;
+        margin-left: 30px;
+        padding: 0 50px;
+        border-radius: 10px;
+        font-size: 20px;
+
+        &:hover {
+          filter: opacity(0.85);
+        }
+      }
+    }
+
+    @media (max-width: 1440px) {
+      form {
+        flex-direction: column;
+        padding: 40px;
+
+        button {
+          height: 70px;
+          margin: 0;
+          margin-top: 60px;
+        }
+      }
+    }
+  }
 }

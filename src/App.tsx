@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Button } from "./components/Button";
 
 import logoImg from "./assets/images/logo.svg";
@@ -6,20 +8,29 @@ import illustrationImg from "./assets/images/illustration-working.svg";
 import "./style.scss";
 
 function App() {
+  const [navbarIsOn, setNavbarIsOn] = useState(false);
+
+  function handleNavbarClick() {
+    setNavbarIsOn(!navbarIsOn);
+  }
+
   return (
     <div>
       <header>
-        <div className="content">
+        <div className={`content ${navbarIsOn ? "responsive" : ""}`}>
           <img src={logoImg} alt="logo" />
-          <div className="nav">
-            <span>Features</span>
-            <span>Pricing</span>
-            <span>Resources</span>
+          <div className="inner-content">
+            <div className="nav">
+              <span>Features</span>
+              <span>Pricing</span>
+              <span>Resources</span>
+            </div>
+            <div className="login">
+              <button id="login">Login</button>
+              <Button>Sign Up</Button>
+            </div>
           </div>
-          <div className="login">
-            <button id="login">Login</button>
-            <Button>Sign Up</Button>
-          </div>
+          <i className="fas fa-bars" onClick={handleNavbarClick}></i>
         </div>
       </header>
       <main>
@@ -33,6 +44,12 @@ function App() {
             <Button>Get Started</Button>
           </div>
           <img src={illustrationImg} alt="Person working on a computer" />
+        </div>
+        <div className="url-container">
+          <form>
+            <input />
+            <Button>Shorten It!</Button>
+          </form>
         </div>
       </main>
     </div>
