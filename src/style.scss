@@ -127,7 +127,9 @@ main {
     }
 
     div {
-      width: 620px;
+      @media (min-width: 1440px) {
+        padding-right: 200px;
+      }
 
       h1 {
         font-size: 80px;

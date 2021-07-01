@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 import { Button } from "./components/Button";
 import { Url } from "./components/Url";
@@ -7,12 +7,24 @@ import logoImg from "./assets/images/logo.svg";
 import illustrationImg from "./assets/images/illustration-working.svg";
 
 import "./style.scss";
+import { getShortUrl } from "./services/shrtcodel";
 
 function App() {
   const [navbarIsOn, setNavbarIsOn] = useState(false);
+  const [urlToShorten, setUrlToShorten] = useState("");
+  const [longUrls, setLongUrls] = useState<string[]>([]);
+  const [shortUrls, setShortUrls] = useState<string[]>([]);
 
   function handleNavbarClick() {
     setNavbarIsOn(!navbarIsOn);
+  }
+
+  async function handleShortenUrlClick(event: FormEvent) {
+    event.preventDefault();
+    const {newShortUrl, newLongUrl} = await getShortUrl(urlToShorten);
+    setUrlToShorten("")
+    setShortUrls(shortUrls.concat(newShortUrl))
+    setLongUrls(longUrls.concat(newLongUrl))
   }
 
   return (
@@ -48,11 +60,11 @@ function App() {
         </div>
         <div className="url-container">
           <form>
-            <input />
-            <Button>Shorten It!</Button>
+            <input onChange={(event) => setUrlToShorten(event.target.value)} />
+            <Button onClick={handleShortenUrlClick}>Shorten It!</Button>
           </form>
         </div>
-        <div>
+        <div className="result-container">
           <Url />
         </div>
       </main>
