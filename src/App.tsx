@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Button } from "./components/Button";
+import { Url } from "./components/Url";
 
 import logoImg from "./assets/images/logo.svg";
 import illustrationImg from "./assets/images/illustration-working.svg";
@@ -50,6 +51,9 @@ function App() {
             <input />
             <Button>Shorten It!</Button>
           </form>
+        </div>
+        <div>
+          <Url />
         </div>
       </main>
     </div>

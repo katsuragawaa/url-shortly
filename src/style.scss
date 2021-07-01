@@ -52,7 +52,7 @@ header .content {
     display: none;
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1024px) {
     flex-wrap: wrap;
 
     .inner-content {
@@ -104,6 +104,14 @@ header .content {
         margin: 30px 20px 46px 20px;
       }
     }
+
+    @media (max-width: 720px) {
+      padding: 50px 20px;
+
+      i {
+        right: 20px;
+      }
+    }
   }
 }
 
@@ -114,8 +122,12 @@ main {
     align-items: center;
     justify-content: space-between;
 
+    img {
+      margin-right: -130px;
+    }
+
     div {
-      width: 660px;
+      width: 620px;
 
       h1 {
         font-size: 80px;
@@ -139,7 +151,7 @@ main {
       }
     }
 
-    @media (max-width: 1440px) {
+    @media (max-width: 1280px) {
       flex-wrap: wrap;
       justify-content: center;
       mix-width: 400px;
@@ -148,9 +160,39 @@ main {
       div {
         order: 1;
 
+        h1 {
+          margin-top: 40px;
+        }
+
         button {
           display: block;
           margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 720px) {
+        margin: 20px;
+        text-align: center;
+
+        img {
+          width: 480px;
+        }
+
+        div {
+          h1 {
+            font-size: 40px;
+          }
+
+          p {
+            font-size: 18px;
+            padding: 20px 0;
+            margin: 0;
+          }
+
+          button {
+            padding: 0 40px;
+            height: 50px;
+          }
         }
       }
     }
@@ -192,15 +234,22 @@ main {
       }
     }
 
-    @media (max-width: 1440px) {
+    @media (max-width: 1024px) {
+      margin: 70px 20px;
+
       form {
         flex-direction: column;
-        padding: 40px;
+        padding: 30px;
+
+        input {
+          height: 50px;
+          font-size: 18px;
+        }
 
         button {
-          height: 70px;
+          height: 50px;
           margin: 0;
-          margin-top: 60px;
+          margin-top: 40px;
         }
       }
     }
