@@ -1,0 +1,44 @@
+.url-result {
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  &:first-child {
+    margin-top: 70px;
+  }
+
+  .long {
+    padding-right: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    // color:hsl(180, 66%, 49%)
+  }
+
+  .short {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		
+    .shorten-link {
+      color: hsl(180, 66%, 49%);
+    }
+
+    button {
+      font-size: 18px;
+      margin-left: 30px;
+      padding: 0 40px;
+      border-radius: 10px;
+    }
+  }
+
+  @media (max: width 720px) {
+    flex-wrap: none;
+  }
+}

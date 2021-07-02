@@ -12,8 +12,8 @@ import { getShortUrl } from "./services/shrtcodel";
 function App() {
   const [navbarIsOn, setNavbarIsOn] = useState(false);
   const [urlToShorten, setUrlToShorten] = useState("");
-  const [longUrls, setLongUrls] = useState<string[]>([]);
-  const [shortUrls, setShortUrls] = useState<string[]>([]);
+  const [returnedUrls, setReturnedUrls] = useState<string[][]>([]);
+  const [waiting, setWaiting] = useState(false);
 
   function handleNavbarClick() {
     setNavbarIsOn(!navbarIsOn);
@@ -21,10 +21,16 @@ function App() {
 
   async function handleShortenUrlClick(event: FormEvent) {
     event.preventDefault();
-    const {newShortUrl, newLongUrl} = await getShortUrl(urlToShorten);
-    setUrlToShorten("")
-    setShortUrls(shortUrls.concat(newShortUrl))
-    setLongUrls(longUrls.concat(newLongUrl))
+    try {
+      setWaiting(true);
+      const { id, newShortUrl, newLongUrl } = await getShortUrl(urlToShorten);
+      setWaiting(false);
+      setUrlToShorten("");
+      setReturnedUrls(returnedUrls.concat([[id, newShortUrl, newLongUrl]]));
+    } catch {
+      setWaiting(false);
+      alert("Invalid URL");
+    }
   }
 
   return (
@@ -60,12 +66,22 @@ function App() {
         </div>
         <div className="url-container">
           <form>
-            <input onChange={(event) => setUrlToShorten(event.target.value)} />
-            <Button onClick={handleShortenUrlClick}>Shorten It!</Button>
+            <input
+              onChange={(event) => setUrlToShorten(event.target.value)}
+              value={urlToShorten}
+            />
+            <Button
+              className={`btn ${waiting ? "waiting" : ""}`}
+              onClick={handleShortenUrlClick}
+            >
+              {waiting ? "Getting It!" : "Shorten It!"}
+            </Button>
           </form>
         </div>
         <div className="result-container">
-          <Url />
+          {returnedUrls.map(([id, shortUrl, longUrl]) => {
+            return <Url key={id} shortUrl={shortUrl} longUrl={longUrl} />;
+          })}
         </div>
       </main>
     </div>
